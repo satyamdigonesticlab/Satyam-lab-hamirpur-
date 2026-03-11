@@ -9,8 +9,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 
 *{
@@ -21,9 +19,8 @@ box-sizing:border-box;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#f4f8ff;
+background:#f5f9ff;
 color:#222;
-scroll-behavior:smooth;
 }
 
 /* NAVBAR */
@@ -32,8 +29,7 @@ header{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(255,255,255,0.9);
-backdrop-filter:blur(10px);
+background:white;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -43,7 +39,7 @@ z-index:1000;
 }
 
 .logo{
-font-size:24px;
+font-size:22px;
 font-weight:700;
 color:#0b6cff;
 }
@@ -53,11 +49,6 @@ margin-left:25px;
 text-decoration:none;
 color:#333;
 font-weight:500;
-transition:.3s;
-}
-
-nav a:hover{
-color:#0b6cff;
 }
 
 /* HERO */
@@ -68,32 +59,31 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-url("images/lab-front.jpg");
+color:white;
+
+background:
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b");
+
 background-size:cover;
 background-position:center;
-color:white;
-padding:40px;
 }
 
 .hero h1{
-font-size:52px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:20px;
-margin-bottom:25px;
+font-size:50px;
+margin-bottom:10px;
 }
 
 .btn{
 background:#0b6cff;
-color:white;
 padding:14px 28px;
+color:white;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
 }
+
+/* SECTIONS */
 
 .section{
 padding:100px 8%;
@@ -119,17 +109,6 @@ padding:35px;
 border-radius:16px;
 text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:.3s;
-}
-
-.feature:hover{
-transform:translateY(-10px);
-}
-
-.feature i{
-font-size:40px;
-color:#0b6cff;
-margin-bottom:15px;
 }
 
 /* TESTS */
@@ -181,11 +160,6 @@ gap:25px;
 width:100%;
 border-radius:14px;
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
-transition:.4s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
 }
 
 /* CONTACT */
@@ -197,14 +171,6 @@ text-align:center;
 padding:80px 20px;
 }
 
-.map{
-width:100%;
-height:350px;
-border:0;
-margin-top:30px;
-border-radius:10px;
-}
-
 /* FOOTER */
 
 footer{
@@ -214,19 +180,7 @@ text-align:center;
 padding:25px;
 }
 
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:white;
-font-size:28px;
-padding:15px 18px;
-border-radius:50%;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
+/* MOBILE */
 
 @media(max-width:800px){
 
@@ -236,10 +190,6 @@ font-size:34px;
 
 .about{
 grid-template-columns:1fr;
-}
-
-nav{
-display:none;
 }
 
 }
@@ -264,6 +214,8 @@ display:none;
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
 
 <div>
@@ -272,11 +224,15 @@ display:none;
 
 <p>Advanced Diagnostic Services in Hamirpur Since 2015</p>
 
+<br>
+
 <a class="btn" href="https://wa.me/919816735272">Book Test</a>
 
 </div>
 
 </section>
+
+<!-- FEATURES -->
 
 <section class="section">
 
@@ -285,32 +241,25 @@ display:none;
 <div class="features">
 
 <div class="feature">
-<i class="fas fa-microscope"></i>
-<h3>Modern Lab</h3>
+<h3>Modern Equipment</h3>
 <p>Latest diagnostic machines</p>
 </div>
 
 <div class="feature">
-<i class="fas fa-clock"></i>
 <h3>Fast Reports</h3>
-<p>Quick report delivery</p>
+<p>Quick and accurate results</p>
 </div>
 
 <div class="feature">
-<i class="fas fa-user-md"></i>
-<h3>Expert Staff</h3>
-<p>Experienced technicians</p>
-</div>
-
-<div class="feature">
-<i class="fas fa-hand-holding-heart"></i>
 <h3>Affordable Tests</h3>
-<p>Quality tests at low price</p>
+<p>Quality tests at reasonable prices</p>
 </div>
 
 </div>
 
 </section>
+
+<!-- TESTS -->
 
 <section id="tests" class="section">
 
@@ -328,20 +277,22 @@ display:none;
 
 </section>
 
+<!-- ABOUT -->
+
 <section id="about" class="section">
 
 <h2 class="section-title">About Our Lab</h2>
 
 <div class="about">
 
-<img src="images/lab-entrance.jpg">
+<img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b">
 
 <div>
 
-<p><strong>Satyam Diagnostic Lab</strong> has been providing reliable pathology services in Hamirpur since 2015.</p>
+<p><b>Satyam Diagnostic Lab</b> provides trusted pathology services in Hamirpur with modern equipment and experienced staff.</p>
 
-<p>Opposite RKGMC & Hospital</p>
-<p>Hamirpur, Himachal Pradesh</p>
+<p>Opposite RKGMC Hospital</p>
+
 <p>Phone: 9816735272</p>
 
 </div>
@@ -349,6 +300,8 @@ display:none;
 </div>
 
 </section>
+
+<!-- GALLERY -->
 
 <section id="gallery" class="section">
 
@@ -356,29 +309,27 @@ display:none;
 
 <div class="gallery">
 
-<img src="images/lab-front.jpg">
-<img src="images/lab-entrance.jpg">
-<img src="images/xray-machine.jpg">
-<img src="images/blood-machine.jpg">
-<img src="images/lab-equipment.jpg">
+<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67">
+
+<img src="https://images.unsplash.com/photo-1581091215367-59ab6c8b9c2c">
+
+<img src="https://images.unsplash.com/photo-1580281657527-47d3f4e2f72d">
+
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
 
 </div>
 
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
 <h2>Contact Us</h2>
 
 <p>Phone: 9816735272</p>
+
 <p>WhatsApp: 9816735272</p>
-
-<a class="btn" href="tel:9816735272">Call Now</a>
-
-<iframe
-class="map"
-src="https://www.google.com/maps?q=RKGMC%20Hamirpur&output=embed">
-</iframe>
 
 </section>
 
@@ -388,11 +339,5 @@ src="https://www.google.com/maps?q=RKGMC%20Hamirpur&output=embed">
 
 </footer>
 
-<a href="https://wa.me/919816735272" class="whatsapp">
-
-<i class="fab fa-whatsapp"></i>
-
-</a>
-
 </body>
-  </html>
+</html>
