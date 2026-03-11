@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Satyam Diagnostic Lab | Hamirpur</title>
-
-<meta name="description" content="Satyam Diagnostic Lab Hamirpur - Blood tests, pathology services, fast and accurate reports since 2015.">
+<title>Satyam Diagnostic Lab</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -18,23 +17,29 @@ html{scroll-behavior:smooth;}
 
 body{
 font-family:'Poppins',sans-serif;
-background:#f4f7ff;
-color:#222;
+color:white;
+overflow-x:hidden;
 }
 
-/* LOADER */
+/* ANIMATED BACKGROUND */
 
-#loader{
+body::before{
+content:"";
 position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-background:#0b6cff;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-size:24px;
-z-index:9999;
+background:linear-gradient(45deg,#0b6cff,#00c6ff,#0072ff,#003b8e);
+background-size:400% 400%;
+animation:bg 12s infinite linear;
+z-index:-1;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 /* NAVBAR */
@@ -43,41 +48,23 @@ header{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(255,255,255,0.9);
-backdrop-filter:blur(10px);
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 8%;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-z-index:1000;
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(12px);
 }
 
 .logo{
 font-weight:700;
 font-size:20px;
-color:#0b6cff;
-}
-
-nav{
-display:flex;
-gap:20px;
 }
 
 nav a{
+margin-left:20px;
 text-decoration:none;
-color:#333;
-font-weight:500;
-}
-
-.menu{
-display:none;
-font-size:24px;
-cursor:pointer;
-}
-
-.dark-toggle{
-cursor:pointer;
+color:white;
 }
 
 /* HERO */
@@ -88,8 +75,6 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-color:white;
-background:linear-gradient(135deg,#0b6cff,#003b8e);
 padding:20px;
 }
 
@@ -101,101 +86,64 @@ margin-bottom:15px;
 .btn{
 background:white;
 color:#0b6cff;
-padding:14px 28px;
+padding:14px 30px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
+}
+
+/* GLASS CARD */
+
+.glass{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+border-radius:15px;
+padding:30px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 /* SECTION */
 
 .section{
 padding:90px 8%;
-}
-
-.section-title{
 text-align:center;
-font-size:34px;
-margin-bottom:50px;
 }
 
-/* FEATURES */
-
-.features{
+.cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;
+margin-top:40px;
 }
 
-.feature{
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-transition:0.3s;
-}
+/* COUNTERS */
 
-.feature:hover{transform:translateY(-8px);}
-
-/* STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-text-align:center;
-}
-
-.stat{
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-.stat h2{
-color:#0b6cff;
-font-size:36px;
-}
-
-/* TESTS */
-
-.tests{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
-
-.test-card{
-background:white;
-padding:30px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-.price{
-color:#0b6cff;
-font-size:24px;
+.counter{
+font-size:40px;
 font-weight:700;
 }
 
-/* DOCTOR */
+/* PRICE CALCULATOR */
 
-.doctor{
-max-width:700px;
-margin:auto;
-text-align:center;
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+select{
+padding:10px;
+border-radius:8px;
+border:none;
+margin:10px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:25px;
+cursor:pointer;
 }
 
 /* TESTIMONIALS */
 
 .slider{
 overflow:hidden;
+margin-top:30px;
 }
 
 .slides{
@@ -204,12 +152,8 @@ gap:20px;
 animation:slide 15s infinite linear;
 }
 
-.testimonial{
+.review{
 min-width:250px;
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
 @keyframes slide{
@@ -217,123 +161,38 @@ box-shadow:0 10px 25px rgba(0,0,0,0.08);
 100%{transform:translateX(-50%);}
 }
 
-/* FORM */
+/* CHATBOT */
 
-form{
-max-width:600px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input,select,textarea{
-padding:12px;
-border-radius:8px;
-border:1px solid #ddd;
-}
-
-button{
-background:#0b6cff;
-color:white;
-border:none;
-padding:12px;
-border-radius:25px;
-cursor:pointer;
-}
-
-/* FAQ */
-
-.faq-item{
-margin-bottom:10px;
-}
-
-.faq-item h4{
-background:#0b6cff;
-color:white;
-padding:10px;
-cursor:pointer;
-}
-
-.faq-item p{
-display:none;
-background:#eef3ff;
-padding:10px;
-}
-
-/* MAP */
-
-.map iframe{
-width:100%;
-height:300px;
-border:0;
+.chatbot{
+position:fixed;
+bottom:90px;
+right:20px;
+width:260px;
+background:white;
+color:black;
 border-radius:12px;
+padding:15px;
+display:none;
 }
 
-/* CONTACT */
-
-.contact{
-background:#0b6cff;
-color:white;
-text-align:center;
-padding:70px 20px;
-}
-
-/* FOOTER */
-
-footer{
-background:#0d1b2a;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
+.chatbtn{
 position:fixed;
 bottom:20px;
 right:20px;
-background:#25D366;
+background:#0b6cff;
 color:white;
-padding:15px 18px;
+padding:15px;
 border-radius:50%;
-font-size:22px;
-text-decoration:none;
-}
-
-/* DARK MODE */
-
-.dark{
-background:#111;
-color:white;
-}
-
-.dark header{background:#1a1a1a;}
-
-.dark .feature,
-.dark .test-card,
-.dark .stat,
-.dark .doctor,
-.dark .testimonial{
-background:#222;
+cursor:pointer;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-nav{
-display:none;
-flex-direction:column;
-position:absolute;
-top:60px;
-right:0;
-background:white;
-padding:20px;
+.hero h1{
+font-size:34px;
 }
-
-.menu{display:block;}
 
 }
 
@@ -343,21 +202,15 @@ padding:20px;
 
 <body>
 
-<div id="loader">Loading Satyam Lab...</div>
-
 <header>
 
-<div class="logo">Satyam Diagnostic Lab</div>
+<div class="logo">Satyam Lab</div>
 
-<div class="menu" onclick="toggleMenu()">☰</div>
-
-<nav id="nav">
+<nav>
 
 <a href="#">Home</a>
 <a href="#tests">Tests</a>
-<a href="#booking">Booking</a>
-<a href="#faq">FAQ</a>
-<span class="dark-toggle" onclick="toggleDark()">🌙</span>
+<a href="#calculator">Price</a>
 
 </nav>
 
@@ -366,22 +219,12 @@ padding:20px;
 <section class="hero">
 
 <div>
-<h1>Accurate Blood Testing You Can Trust</h1>
+
+<h1>Advanced Diagnostic Testing</h1>
+
 <p>Serving Hamirpur Since 2015</p>
-<a class="btn" href="#booking">Book Test</a>
-</div>
 
-</section>
-
-<section class="section">
-
-<h2 class="section-title">Why Choose Us</h2>
-
-<div class="features">
-
-<div class="feature">Trusted Diagnostic Services</div>
-<div class="feature">Fast & Accurate Reports</div>
-<div class="feature">Modern Equipment</div>
+<a class="btn" href="#calculator">Check Test Price</a>
 
 </div>
 
@@ -389,28 +232,13 @@ padding:20px;
 
 <section class="section">
 
-<h2 class="section-title">Our Impact</h2>
+<h2>Why Choose Us</h2>
 
-<div class="stats">
+<div class="cards">
 
-<div class="stat"><h2>10000+</h2><p>Patients Tested</p></div>
-<div class="stat"><h2>8+</h2><p>Years Experience</p></div>
-<div class="stat"><h2>50+</h2><p>Tests Available</p></div>
-
-</div>
-
-</section>
-
-<section id="tests" class="section">
-
-<h2 class="section-title">Popular Tests</h2>
-
-<div class="tests">
-
-<div class="test-card"><h3>CBC</h3><div class="price">₹250</div></div>
-<div class="test-card"><h3>Blood Sugar</h3><div class="price">₹50</div></div>
-<div class="test-card"><h3>Lipid Profile</h3><div class="price">₹400</div></div>
-<div class="test-card"><h3>Thyroid Profile</h3><div class="price">₹400</div></div>
+<div class="glass">Trusted Since 2015</div>
+<div class="glass">Fast Accurate Reports</div>
+<div class="glass">Modern Equipment</div>
 
 </div>
 
@@ -418,27 +246,64 @@ padding:20px;
 
 <section class="section">
 
-<h2 class="section-title">Lab Specialist</h2>
+<h2>Our Impact</h2>
 
-<div class="doctor">
-<h3>Experienced Diagnostic Team</h3>
-<p>Providing reliable pathology services with modern technology.</p>
+<div class="cards">
+
+<div class="glass">
+<div class="counter">10000+</div>
+Patients Tested
+</div>
+
+<div class="glass">
+<div class="counter">8+</div>
+Years Experience
+</div>
+
+<div class="glass">
+<div class="counter">50+</div>
+Tests Available
+</div>
+
+</div>
+
+</section>
+
+<section id="calculator" class="section">
+
+<h2>Test Price Calculator</h2>
+
+<div class="glass">
+
+<select id="test">
+
+<option value="250">CBC</option>
+<option value="50">Blood Sugar</option>
+<option value="400">Lipid Profile</option>
+<option value="400">Thyroid</option>
+
+</select>
+
+<button onclick="calculate()">Check Price</button>
+
+<h3 id="price"></h3>
+
 </div>
 
 </section>
 
 <section class="section">
 
-<h2 class="section-title">Patient Reviews</h2>
+<h2>Patient Reviews</h2>
 
 <div class="slider">
 
 <div class="slides">
 
-<div class="testimonial">Very fast reports and professional service.</div>
-<div class="testimonial">Clean lab and friendly staff.</div>
-<div class="testimonial">Best diagnostic lab in Hamirpur.</div>
-<div class="testimonial">Highly reliable blood testing.</div>
+<div class="glass review">Fast and reliable reports.</div>
+<div class="glass review">Best lab in Hamirpur.</div>
+<div class="glass review">Clean and professional service.</div>
+<div class="glass review">Highly recommended diagnostic lab.</div>
 
 </div>
 
@@ -446,100 +311,44 @@ padding:20px;
 
 </section>
 
-<section id="booking" class="section">
+<footer class="section">
 
-<h2 class="section-title">Book a Test</h2>
-
-<form onsubmit="sendWhatsApp(event)">
-
-<input id="name" placeholder="Your Name" required>
-<input id="phone" placeholder="Phone Number" required>
-
-<select id="test">
-<option>CBC</option>
-<option>Blood Sugar</option>
-<option>Lipid Profile</option>
-<option>Thyroid Profile</option>
-</select>
-
-<button type="submit">Book on WhatsApp</button>
-
-</form>
-
-</section>
-
-<section id="faq" class="section">
-
-<h2 class="section-title">FAQ</h2>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">How long do reports take?</h4>
-<p>Most reports are available within 24 hours.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do you accept walk-ins?</h4>
-<p>Yes, patients can visit without appointment.</p>
-</div>
-
-</section>
-
-<section class="section map">
-
-<h2 class="section-title">Find Us</h2>
-
-<iframe src="https://maps.google.com/maps?q=hamirpur%20hospital&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-
-</section>
-
-<section class="contact">
-
-<h2>Contact Us</h2>
+<h3>Contact</h3>
 
 <p>Phone: 9816735272</p>
 <p>Opposite RKGMC Hospital, Hamirpur</p>
 
-</section>
-
-<footer>
-<p>© 2026 Satyam Diagnostic Lab</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919816735272">💬</a>
+<div class="chatbtn" onclick="toggleChat()">💬</div>
+
+<div class="chatbot" id="chat">
+
+<b>Satyam Lab Assistant</b>
+
+<p>Need help booking a test?</p>
+
+<button onclick="book()">Book on WhatsApp</button>
+
+</div>
 
 <script>
 
-window.onload=function(){
-document.getElementById("loader").style.display="none";
+function calculate(){
+let price=document.getElementById("test").value;
+document.getElementById("price").innerText="Price ₹"+price;
 }
 
-function toggleMenu(){
-let nav=document.getElementById("nav");
-nav.style.display=nav.style.display=="flex"?"none":"flex";
+function toggleChat(){
+let c=document.getElementById("chat");
+c.style.display=c.style.display=="block"?"none":"block";
 }
 
-function toggleDark(){
-document.body.classList.toggle("dark");
-}
-
-function toggleFAQ(el){
-let p=el.nextElementSibling;
-p.style.display=p.style.display=="block"?"none":"block";
-}
-
-function sendWhatsApp(e){
-e.preventDefault();
-
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let test=document.getElementById("test").value;
-
-let msg=`Test Booking:%0AName: ${name}%0APhone: ${phone}%0ATest: ${test}`;
-
-window.open(`https://wa.me/919816735272?text=${msg}`);
+function book(){
+window.open("https://wa.me/919816735272");
 }
 
 </script>
 
 </body>
-  </html>
+                              </html>
