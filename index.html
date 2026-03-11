@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -26,16 +27,15 @@ color:#222;
 /* NAVBAR */
 
 header{
-position:fixed;
+position:sticky;
 top:0;
-width:100%;
 background:white;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 8%;
 box-shadow:0 5px 20px rgba(0,0,0,0.08);
-z-index:1000;
+z-index:100;
 }
 
 .logo{
@@ -45,8 +45,8 @@ color:#0b6cff;
 }
 
 nav a{
-margin-left:25px;
 text-decoration:none;
+margin-left:25px;
 color:#333;
 font-weight:500;
 }
@@ -54,7 +54,7 @@ font-weight:500;
 /* HERO */
 
 .hero{
-height:100vh;
+height:85vh;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -62,14 +62,15 @@ text-align:center;
 color:white;
 
 background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-lab-front.jpg
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("lab-front.jpg");
+
 background-size:cover;
 background-position:center;
 }
 
 .hero h1{
-font-size:50px;
+font-size:48px;
 margin-bottom:10px;
 }
 
@@ -85,7 +86,7 @@ font-weight:600;
 /* SECTIONS */
 
 .section{
-padding:100px 8%;
+padding:80px 8%;
 }
 
 .section-title{
@@ -104,7 +105,7 @@ gap:25px;
 
 .feature{
 background:white;
-padding:35px;
+padding:30px;
 border-radius:16px;
 text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
@@ -128,9 +129,9 @@ box-shadow:0 10px 30px rgba(0,0,0,0.08);
 
 .price{
 font-size:24px;
+font-weight:700;
 color:#0b6cff;
 margin-top:10px;
-font-weight:700;
 }
 
 /* ABOUT */
@@ -144,7 +145,7 @@ align-items:center;
 
 .about img{
 width:100%;
-border-radius:16px;
+border-radius:14px;
 }
 
 /* GALLERY */
@@ -158,7 +159,7 @@ gap:25px;
 .gallery img{
 width:100%;
 border-radius:14px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
 }
 
 /* CONTACT */
@@ -167,7 +168,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.15);
 background:#0b6cff;
 color:white;
 text-align:center;
-padding:80px 20px;
+padding:70px 20px;
 }
 
 /* FOOTER */
@@ -176,7 +177,22 @@ footer{
 background:#0d1b2a;
 color:white;
 text-align:center;
-padding:25px;
+padding:20px;
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* MOBILE */
@@ -204,11 +220,13 @@ grid-template-columns:1fr;
 <div class="logo">Satyam Diagnostic Lab</div>
 
 <nav>
+
 <a href="#">Home</a>
 <a href="#tests">Tests</a>
 <a href="#about">About</a>
 <a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
+
 </nav>
 
 </header>
@@ -221,7 +239,7 @@ grid-template-columns:1fr;
 
 <h1>Accurate Blood Testing You Can Trust</h1>
 
-<p>Advanced Diagnostic Services in Hamirpur Since 2015</p>
+<p>Serving Hamirpur Since 2015</p>
 
 <br>
 
@@ -240,18 +258,18 @@ grid-template-columns:1fr;
 <div class="features">
 
 <div class="feature">
-<h3>Modern Equipment</h3>
-<p>Latest diagnostic machines</p>
+<h3>Trusted Since 2015</h3>
+<p>Reliable diagnostic services</p>
 </div>
 
 <div class="feature">
 <h3>Fast Reports</h3>
-<p>Quick and accurate results</p>
+<p>Quick and accurate reports</p>
 </div>
 
 <div class="feature">
-<h3>Affordable Tests</h3>
-<p>Quality tests at reasonable prices</p>
+<h3>Modern Equipment</h3>
+<p>Advanced laboratory machines</p>
 </div>
 
 </div>
@@ -284,13 +302,15 @@ grid-template-columns:1fr;
 
 <div class="about">
 
-<img src=xray-room.jpg
+<img src="lab-board.jpg">
 
 <div>
 
-<p><b>Satyam Diagnostic Lab</b> provides trusted pathology services in Hamirpur with modern equipment and experienced staff.</p>
+<p><b>Satyam Diagnostic Lab</b> provides trusted pathology services in Hamirpur with modern technology and experienced staff.</p>
 
 <p>Opposite RKGMC Hospital</p>
+
+<p>Agriculture Colony, Hamirpur</p>
 
 <p>Phone: 9816735272</p>
 
@@ -308,13 +328,15 @@ grid-template-columns:1fr;
 
 <div class="gallery">
 
-<img src=lab-board.jpg
+<img src="lab-front.jpg">
 
-<img src=machine.jpg
+<img src="lab-board.jpg">
 
-<img src=xray-room.jpg
+<img src="machine.jpg">
 
-<img src=lab-font.jpg
+<img src="lab-equipment.jpg">
+
+<img src="xray-room.jpg">
 
 </div>
 
@@ -330,6 +352,8 @@ grid-template-columns:1fr;
 
 <p>WhatsApp: 9816735272</p>
 
+<p>Location: Opposite RKGMC Hospital, Hamirpur</p>
+
 </section>
 
 <footer>
@@ -338,5 +362,8 @@ grid-template-columns:1fr;
 
 </footer>
 
+<a class="whatsapp" href="https://wa.me/919816735272">💬</a>
+
 </body>
-</html>
+
+  </html>
