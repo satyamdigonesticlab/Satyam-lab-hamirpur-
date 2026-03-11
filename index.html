@@ -17,29 +17,9 @@ html{scroll-behavior:smooth;}
 
 body{
 font-family:'Poppins',sans-serif;
-color:white;
+background:#f5f9ff;
+color:#1a2b4c;
 overflow-x:hidden;
-}
-
-/* Animated Gradient Background */
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(45deg,#0b6cff,#00c6ff,#003b8e,#001f5c);
-background-size:400% 400%;
-animation:bgmove 12s infinite linear;
-z-index:-1;
-}
-
-@keyframes bgmove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
 }
 
 /* Navbar */
@@ -52,13 +32,13 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 8%;
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(10px);
+background:white;
+box-shadow:0 4px 20px rgba(0,0,0,0.05);
 z-index:100;
 }
 
 nav a{
-color:white;
+color:#1a2b4c;
 margin-left:22px;
 text-decoration:none;
 font-weight:500;
@@ -66,7 +46,7 @@ transition:0.3s;
 }
 
 nav a:hover{
-opacity:0.7;
+color:#0b6cff;
 }
 
 /* Hero */
@@ -79,6 +59,9 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:20px;
+
+background:linear-gradient(120deg,#0b6cff,#00bfa6);
+color:white;
 }
 
 .hero h1{
@@ -90,7 +73,7 @@ margin-bottom:12px;
 opacity:0.9;
 }
 
-/* Buttons */
+/* Button */
 
 .btn{
 background:white;
@@ -116,11 +99,19 @@ transform:translateY(40px);
 transition:all 0.8s ease;
 }
 
-/* Visible animation */
-
 section.show{
 opacity:1;
 transform:translateY(0);
+}
+
+/* Alternating background */
+
+.light{
+background:#ffffff;
+}
+
+.soft{
+background:#eef4ff;
 }
 
 /* Cards */
@@ -132,25 +123,29 @@ gap:25px;
 margin-top:40px;
 }
 
-.glass{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
+.card{
+background:white;
 padding:28px;
 border-radius:16px;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 transition:0.3s;
 }
 
-.glass:hover{
+.card:hover{
 transform:translateY(-6px);
 }
-
-/* Stats */
 
 .stat{
 font-size:40px;
 font-weight:700;
+color:#0b6cff;
 margin-bottom:5px;
+}
+
+/* Test cards */
+
+.test{
+border-top:4px solid #00bfa6;
 }
 
 /* Reviews */
@@ -183,7 +178,7 @@ padding:16px;
 border-radius:50%;
 font-size:20px;
 cursor:pointer;
-box-shadow:0 6px 20px rgba(0,0,0,0.4);
+box-shadow:0 6px 20px rgba(0,0,0,0.3);
 }
 
 .chatbox{
@@ -195,6 +190,7 @@ background:white;
 color:black;
 padding:15px;
 border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
 display:none;
 }
 
@@ -209,6 +205,16 @@ border:1px solid #ccc;
 .chatbox button{
 margin-top:8px;
 padding:8px 12px;
+background:#0b6cff;
+color:white;
+border:none;
+border-radius:6px;
+}
+
+/* Map */
+
+iframe{
+border-radius:12px;
 }
 
 /* Mobile */
@@ -255,23 +261,23 @@ font-size:34px;
 
 <!-- STATS -->
 
-<section>
+<section class="soft">
 
 <h2>Our Experience</h2>
 
 <div class="grid">
 
-<div class="glass">
+<div class="card">
 <div class="stat">10+</div>
 Years Experience
 </div>
 
-<div class="glass">
+<div class="card">
 <div class="stat">10000+</div>
 Patients Tested
 </div>
 
-<div class="glass">
+<div class="card">
 <div class="stat">50+</div>
 Tests Available
 </div>
@@ -282,17 +288,17 @@ Tests Available
 
 <!-- TESTS -->
 
-<section id="tests">
+<section id="tests" class="light">
 
 <h2>Popular Tests</h2>
 
 <div class="grid">
 
-<div class="glass">CBC — ₹250</div>
-<div class="glass">Blood Sugar — ₹50</div>
-<div class="glass">Lipid Profile — ₹400</div>
-<div class="glass">Thyroid Profile — ₹400</div>
-<div class="glass">Vitamin D — ₹1000</div>
+<div class="card test">CBC — ₹250</div>
+<div class="card test">Blood Sugar — ₹50</div>
+<div class="card test">Lipid Profile — ₹400</div>
+<div class="card test">Thyroid Profile — ₹400</div>
+<div class="card test">Vitamin D — ₹1000</div>
 
 </div>
 
@@ -300,7 +306,7 @@ Tests Available
 
 <!-- REVIEWS -->
 
-<section>
+<section class="soft">
 
 <h2>Patient Reviews</h2>
 
@@ -308,10 +314,10 @@ Tests Available
 
 <div class="slides">
 
-<div class="glass">Very fast and accurate reports.</div>
-<div class="glass">Best diagnostic lab in Hamirpur.</div>
-<div class="glass">Professional and clean environment.</div>
-<div class="glass">Highly recommended service.</div>
+<div class="card">Very fast and accurate reports.</div>
+<div class="card">Best diagnostic lab in Hamirpur.</div>
+<div class="card">Professional and clean environment.</div>
+<div class="card">Highly recommended service.</div>
 
 </div>
 
@@ -321,14 +327,13 @@ Tests Available
 
 <!-- MAP -->
 
-<section>
+<section class="light">
 
 <h2>Find Us</h2>
 
 <iframe
 width="100%"
 height="300"
-style="border:0;border-radius:12px"
 loading="lazy"
 src="https://maps.google.com/maps?q=RKGMC%20Hospital%20Hamirpur%20Himachal%20Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed">
 </iframe>
@@ -337,12 +342,11 @@ src="https://maps.google.com/maps?q=RKGMC%20Hospital%20Hamirpur%20Himachal%20Pra
 
 <!-- CONTACT -->
 
-<section id="contact">
+<section id="contact" class="soft">
 
 <h2>Contact Us</h2>
 
 <p>Phone: 9816735272</p>
-
 <p>Opposite RKGMC Hospital, Hamirpur</p>
 
 </section>
@@ -365,8 +369,6 @@ src="https://maps.google.com/maps?q=RKGMC%20Hospital%20Hamirpur%20Himachal%20Pra
 
 <script>
 
-/* Scroll animation */
-
 const sections=document.querySelectorAll("section");
 
 window.addEventListener("scroll",()=>{
@@ -382,8 +384,6 @@ sec.classList.add("show");
 });
 
 });
-
-/* Chatbot */
 
 function toggleChat(){
 
@@ -403,7 +403,7 @@ if(msg.includes("price"))
 r="CBC ₹250, Sugar ₹50, Thyroid ₹400.";
 
 if(msg.includes("report"))
-r="Reports are usually ready within 24 hours.";
+r="Reports ready within 24 hours.";
 
 if(msg.includes("location"))
 r="Opposite RKGMC Hospital, Hamirpur.";
