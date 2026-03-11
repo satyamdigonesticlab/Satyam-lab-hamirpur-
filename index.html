@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Satyam Diagnostic Lab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f8ff;
+color:#222;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+z-index:1000;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+color:#0b6cff;
+}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#0b6cff;
+}
+
+/* HERO SLIDER */
+
+.hero{
+height:100vh;
+position:relative;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:1s;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.hero-content{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:white;
+background:rgba(0,0,0,0.45);
+padding:40px;
+border-radius:12px;
+}
+
+.hero-content h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero-content p{
+font-size:20px;
+margin-bottom:25px;
+}
+
+.btn{
+background:#0b6cff;
+color:white;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+background:#094db8;
+}
+
+/* SECTION */
+
+.section{
+padding:100px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:36px;
+margin-bottom:50px;
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.feature{
+background:white;
+padding:35px;
+border-radius:16px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.feature:hover{
+transform:translateY(-10px);
+}
+
+.feature i{
+font-size:40px;
+color:#0b6cff;
+margin-bottom:15px;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+text-align:center;
+}
+
+.stat{
+background:white;
+padding:40px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.stat h2{
+font-size:42px;
+color:#0b6cff;
+}
+
+/* TEST CARDS */
+
+.tests{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+}
+
+.test-card{
+background:white;
+padding:30px;
+border-radius:16px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.test-card:hover{
+transform:translateY(-10px);
+}
+
+.price{
+font-size:24px;
+color:#0b6cff;
+margin-top:10px;
+font-weight:700;
+}
+
+/* ABOUT */
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:16px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.gallery img{
+width:100%;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* CONTACT */
+
+.contact{
+background:#0b6cff;
+color:white;
+text-align:center;
+padding:80px 20px;
+}
+
+/* MAP */
+
+.map{
+width:100%;
+height:350px;
+border:0;
+margin-top:30px;
+border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+background:#0d1b2a;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+font-size:28px;
+padding:15px 18px;
+border-radius:50%;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+.hero-content h1{
+font-size:34px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Satyam Diagnostic Lab</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#tests">Tests</a>
+<a href="#about">About</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="slide active" style="background-image:url('lab-front.jpg')"></div>
+<div class="slide" style="background-image:url('lab-entrance.jpg')"></div>
+
+<div class="hero-content">
+
+<h1>Advanced Diagnostic Services</h1>
+
+<p>Accurate Testing • Modern Equipment • Trusted Since 2015</p>
+
+<a class="btn" href="https://wa.me/919816735272">Book Test</a>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<h2 class="section-title">Why Choose Us</h2>
+
+<div class="features">
+
+<div class="feature">
+<i class="fas fa-microscope"></i>
+<h3>Modern Lab</h3>
+<p>Latest diagnostic machines</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-user-md"></i>
+<h3>Expert Staff</h3>
+<p>Professional medical team</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-clock"></i>
+<h3>Fast Reports</h3>
+<p>Quick and accurate results</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-hand-holding-heart"></i>
+<h3>Affordable</h3>
+<p>High quality tests at low cost</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="section">
+
+<h2 class="section-title">Our Achievements</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>10+</h2>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h2>20k+</h2>
+<p>Tests Done</p>
+</div>
+
+<div class="stat">
+<h2>5000+</h2>
+<p>Happy Patients</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTS -->
+
+<section id="tests" class="section">
+
+<h2 class="section-title">Popular Tests</h2>
+
+<div class="tests">
+
+<div class="test-card"><h3>CBC</h3><div class="price">₹250</div></div>
+<div class="test-card"><h3>Blood Sugar</h3><div class="price">₹50</div></div>
+<div class="test-card"><h3>Lipid Profile</h3><div class="price">₹400</div></div>
+<div class="test-card"><h3>Thyroid Profile</h3><div class="price">₹400</div></div>
+<div class="test-card"><h3>Vitamin D</h3><div class="price">₹1000</div></div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+<h2 class="section-title">About Our Lab</h2>
+
+<div class="about">
+
+<img src="lab-entrance.jpg">
+
+<div>
+
+<p><strong>Satyam Diagnostic Lab</strong> provides reliable pathology services in Hamirpur with modern technology and expert staff.</p>
+
+<p>Opposite RKGMC & Hospital</p>
+<p>Hamirpur, Himachal Pradesh</p>
+<p>Phone: 9816735272</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery" class="section">
+
+<h2 class="section-title">Lab Gallery</h2>
+
+<div class="gallery">
+
+<img src="lab-front.jpg">
+<img src="lab-entrance.jpg">
+<img src="xray-machine.jpg">
+<img src="blood-machine.jpg">
+<img src="lab-equipment.jpg">
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>Contact Us</h2>
+
+<p>Phone: 9816735272</p>
+<p>WhatsApp: 9816735272</p>
+
+<a class="btn" href="tel:9816735272">Call Now</a>
+
+<iframe
+class="map"
+src="https://www.google.com/maps?q=RKGMC%20Hamirpur&output=embed">
+</iframe>
+
+</section>
+
+<footer>
+
+<p>© 2026 Satyam Diagnostic Lab</p>
+
+</footer>
+
+<a href="https://wa.me/919816735272" class="whatsapp">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<script>
+
+/* HERO SLIDER */
+
+let slides=document.querySelectorAll('.slide');
+let index=0;
+
+setInterval(()=>{
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+},4000);
+
+</script>
+
+</body>
+</html>
