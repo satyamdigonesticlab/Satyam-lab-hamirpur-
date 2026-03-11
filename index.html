@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -13,36 +12,30 @@
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Poppins;background:#0b6cff;color:white;overflow-x:hidden;}
+
 html{scroll-behavior:smooth;}
 
-body{
-font-family:'Poppins',sans-serif;
-color:white;
-overflow-x:hidden;
-}
-
-/* ANIMATED BACKGROUND */
+/* Animated background */
 
 body::before{
 content:"";
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:linear-gradient(45deg,#0b6cff,#00c6ff,#0072ff,#003b8e);
+background:linear-gradient(45deg,#0b6cff,#00d4ff,#003b8e,#001f5c);
 background-size:400% 400%;
-animation:bg 12s infinite linear;
+animation:bgmove 10s infinite linear;
 z-index:-1;
 }
 
-@keyframes bg{
+@keyframes bgmove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
 
-/* NAVBAR */
+/* Navbar */
 
 header{
 position:fixed;
@@ -50,28 +43,23 @@ top:0;
 width:100%;
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:15px 8%;
 background:rgba(0,0,0,0.3);
-backdrop-filter:blur(12px);
-}
-
-.logo{
-font-weight:700;
-font-size:20px;
+backdrop-filter:blur(10px);
 }
 
 nav a{
+color:white;
 margin-left:20px;
 text-decoration:none;
-color:white;
 }
 
-/* HERO */
+/* Hero */
 
 .hero{
 height:100vh;
 display:flex;
+flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
@@ -80,57 +68,29 @@ padding:20px;
 
 .hero h1{
 font-size:48px;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
-.btn{
-background:white;
-color:#0b6cff;
-padding:14px 30px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-}
-
-/* GLASS CARD */
+/* Glass card */
 
 .glass{
 background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
+padding:25px;
 border-radius:15px;
-padding:30px;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
+margin:15px;
 }
 
-/* SECTION */
+/* Grid */
 
-.section{
-padding:90px 8%;
-text-align:center;
-}
-
-.cards{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
+gap:20px;
 margin-top:40px;
 }
 
-/* COUNTERS */
-
-.counter{
-font-size:40px;
-font-weight:700;
-}
-
-/* PRICE CALCULATOR */
-
-select{
-padding:10px;
-border-radius:8px;
-border:none;
-margin:10px;
-}
+/* Buttons */
 
 button{
 padding:12px 20px;
@@ -139,39 +99,17 @@ border-radius:25px;
 cursor:pointer;
 }
 
-/* TESTIMONIALS */
+/* Chatbot */
 
-.slider{
-overflow:hidden;
-margin-top:30px;
-}
-
-.slides{
-display:flex;
-gap:20px;
-animation:slide 15s infinite linear;
-}
-
-.review{
-min-width:250px;
-}
-
-@keyframes slide{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
-}
-
-/* CHATBOT */
-
-.chatbot{
+.chat{
 position:fixed;
 bottom:90px;
 right:20px;
 width:260px;
 background:white;
 color:black;
-border-radius:12px;
 padding:15px;
+border-radius:12px;
 display:none;
 }
 
@@ -180,63 +118,69 @@ position:fixed;
 bottom:20px;
 right:20px;
 background:#0b6cff;
-color:white;
 padding:15px;
 border-radius:50%;
 cursor:pointer;
 }
 
-/* MOBILE */
+/* Testimonials */
 
-@media(max-width:768px){
-
-.hero h1{
-font-size:34px;
+.slider{
+overflow:hidden;
 }
 
+.slides{
+display:flex;
+gap:20px;
+animation:slide 15s infinite linear;
+}
+
+@keyframes slide{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+
+/* Section */
+
+section{
+padding:90px 8%;
+text-align:center;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
 
-<div class="logo">Satyam Lab</div>
+<h3>Satyam Lab</h3>
 
 <nav>
-
 <a href="#">Home</a>
 <a href="#tests">Tests</a>
-<a href="#calculator">Price</a>
-
+<a href="#ai">AI Tool</a>
 </nav>
 
 </header>
 
 <section class="hero">
 
-<div>
-
 <h1>Advanced Diagnostic Testing</h1>
 
 <p>Serving Hamirpur Since 2015</p>
 
-<a class="btn" href="#calculator">Check Test Price</a>
-
-</div>
+<button onclick="book()">Book Test</button>
 
 </section>
 
-<section class="section">
+<section>
 
 <h2>Why Choose Us</h2>
 
-<div class="cards">
+<div class="grid">
 
-<div class="glass">Trusted Since 2015</div>
+<div class="glass">Trusted Diagnostic Services</div>
 <div class="glass">Fast Accurate Reports</div>
 <div class="glass">Modern Equipment</div>
 
@@ -244,55 +188,45 @@ font-size:34px;
 
 </section>
 
-<section class="section">
+<section id="tests">
 
-<h2>Our Impact</h2>
+<h2>Popular Tests</h2>
 
-<div class="cards">
+<div class="grid">
 
-<div class="glass">
-<div class="counter">10000+</div>
-Patients Tested
-</div>
-
-<div class="glass">
-<div class="counter">8+</div>
-Years Experience
-</div>
-
-<div class="glass">
-<div class="counter">50+</div>
-Tests Available
-</div>
+<div class="glass">CBC ₹250</div>
+<div class="glass">Blood Sugar ₹50</div>
+<div class="glass">Lipid Profile ₹400</div>
+<div class="glass">Thyroid Profile ₹400</div>
 
 </div>
 
 </section>
 
-<section id="calculator" class="section">
+<section id="ai">
 
-<h2>Test Price Calculator</h2>
+<h2>Smart Test Recommendation</h2>
 
 <div class="glass">
 
-<select id="test">
+<select id="symptom">
 
-<option value="250">CBC</option>
-<option value="50">Blood Sugar</option>
-<option value="400">Lipid Profile</option>
-<option value="400">Thyroid</option>
+<option value="">Select Symptom</option>
+<option value="fatigue">Fatigue</option>
+<option value="diabetes">Frequent thirst</option>
+<option value="cholesterol">Chest heaviness</option>
 
 </select>
 
-<button onclick="calculate()">Check Price</button>
+<button onclick="recommend()">Check Test</button>
 
-<h3 id="price"></h3>
+<h3 id="result"></h3>
 
 </div>
 
 </section>
 
-<section class="section">
+<section>
 
 <h2>Patient Reviews</h2>
 
@@ -300,10 +234,10 @@ Tests Available
 
 <div class="slides">
 
-<div class="glass review">Fast and reliable reports.</div>
-<div class="glass review">Best lab in Hamirpur.</div>
-<div class="glass review">Clean and professional service.</div>
-<div class="glass review">Highly recommended diagnostic lab.</div>
+<div class="glass">Very fast reports.</div>
+<div class="glass">Best lab in Hamirpur.</div>
+<div class="glass">Highly professional staff.</div>
+<div class="glass">Accurate testing service.</div>
 
 </div>
 
@@ -311,44 +245,88 @@ Tests Available
 
 </section>
 
-<footer class="section">
+<section>
 
-<h3>Contact</h3>
+<h2>Find Us</h2>
+
+<iframe
+width="100%"
+height="300"
+style="border:0;border-radius:12px"
+src="https://maps.google.com/maps?q=hamirpur%20hospital&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</section>
+
+<section>
+
+<h2>Contact</h2>
 
 <p>Phone: 9816735272</p>
 <p>Opposite RKGMC Hospital, Hamirpur</p>
 
-</footer>
+</section>
 
 <div class="chatbtn" onclick="toggleChat()">💬</div>
 
-<div class="chatbot" id="chat">
+<div class="chat" id="chat">
 
 <b>Satyam Lab Assistant</b>
 
-<p>Need help booking a test?</p>
+<input id="user" placeholder="Ask something">
 
-<button onclick="book()">Book on WhatsApp</button>
+<button onclick="reply()">Send</button>
+
+<p id="bot"></p>
 
 </div>
 
 <script>
 
-function calculate(){
-let price=document.getElementById("test").value;
-document.getElementById("price").innerText="Price ₹"+price;
+function book(){
+window.open("https://wa.me/919816735272");
+}
+
+function recommend(){
+
+let s=document.getElementById("symptom").value;
+
+if(s=="fatigue")
+document.getElementById("result").innerText="Recommended: CBC + Thyroid";
+
+else if(s=="diabetes")
+document.getElementById("result").innerText="Recommended: Blood Sugar Test";
+
+else if(s=="cholesterol")
+document.getElementById("result").innerText="Recommended: Lipid Profile";
+
 }
 
 function toggleChat(){
+
 let c=document.getElementById("chat");
+
 c.style.display=c.style.display=="block"?"none":"block";
+
 }
 
-function book(){
-window.open("https://wa.me/919816735272");
+function reply(){
+
+let msg=document.getElementById("user").value.toLowerCase();
+
+let r="Please contact us on WhatsApp.";
+
+if(msg.includes("price"))
+r="CBC ₹250, Sugar ₹50.";
+
+if(msg.includes("report"))
+r="Reports ready within 24 hours.";
+
+document.getElementById("bot").innerText=r;
+
 }
 
 </script>
 
 </body>
-                              </html>
+</html>
