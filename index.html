@@ -12,20 +12,27 @@
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Poppins;background:#0b6cff;color:white;overflow-x:hidden;}
 
 html{scroll-behavior:smooth;}
 
-/* Animated background */
+body{
+font-family:'Poppins',sans-serif;
+color:white;
+overflow-x:hidden;
+}
+
+/* Animated Gradient Background */
 
 body::before{
 content:"";
 position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-background:linear-gradient(45deg,#0b6cff,#00d4ff,#003b8e,#001f5c);
+background:linear-gradient(45deg,#0b6cff,#00c6ff,#003b8e,#001f5c);
 background-size:400% 400%;
-animation:bgmove 10s infinite linear;
+animation:bgmove 12s infinite linear;
 z-index:-1;
 }
 
@@ -43,15 +50,23 @@ top:0;
 width:100%;
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:15px 8%;
-background:rgba(0,0,0,0.3);
+background:rgba(0,0,0,0.35);
 backdrop-filter:blur(10px);
+z-index:100;
 }
 
 nav a{
 color:white;
-margin-left:20px;
+margin-left:22px;
 text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+opacity:0.7;
 }
 
 /* Hero */
@@ -68,40 +83,110 @@ padding:20px;
 
 .hero h1{
 font-size:48px;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
-/* Glass card */
-
-.glass{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:15px;
-margin:15px;
-}
-
-/* Grid */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:40px;
+.hero p{
+opacity:0.9;
 }
 
 /* Buttons */
 
-button{
-padding:12px 20px;
-border:none;
-border-radius:25px;
-cursor:pointer;
+.btn{
+background:white;
+color:#0b6cff;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* Sections */
+
+section{
+padding:120px 8%;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+/* Visible animation */
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Cards */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.glass{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+padding:28px;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+transition:0.3s;
+}
+
+.glass:hover{
+transform:translateY(-6px);
+}
+
+/* Stats */
+
+.stat{
+font-size:40px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+/* Reviews */
+
+.slider{
+overflow:hidden;
+margin-top:30px;
+}
+
+.slides{
+display:flex;
+gap:20px;
+animation:slide 16s linear infinite;
+}
+
+@keyframes slide{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
 }
 
 /* Chatbot */
 
-.chat{
+.chatbtn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#0b6cff;
+color:white;
+padding:16px;
+border-radius:50%;
+font-size:20px;
+cursor:pointer;
+box-shadow:0 6px 20px rgba(0,0,0,0.4);
+}
+
+.chatbox{
 position:fixed;
 bottom:90px;
 right:20px;
@@ -113,80 +198,89 @@ border-radius:12px;
 display:none;
 }
 
-.chatbtn{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#0b6cff;
-padding:15px;
-border-radius:50%;
-cursor:pointer;
+.chatbox input{
+width:100%;
+padding:8px;
+margin-top:8px;
+border-radius:6px;
+border:1px solid #ccc;
 }
 
-/* Testimonials */
-
-.slider{
-overflow:hidden;
+.chatbox button{
+margin-top:8px;
+padding:8px 12px;
 }
 
-.slides{
-display:flex;
-gap:20px;
-animation:slide 15s infinite linear;
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:34px;
 }
 
-@keyframes slide{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
-}
-
-/* Section */
-
-section{
-padding:90px 8%;
-text-align:center;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
 
-<h3>Satyam Lab</h3>
+<h3>Satyam Diagnostic Lab</h3>
 
 <nav>
 <a href="#">Home</a>
 <a href="#tests">Tests</a>
-<a href="#ai">AI Tool</a>
+<a href="#contact">Contact</a>
 </nav>
 
 </header>
 
-<section class="hero">
+<!-- HERO -->
 
-<h1>Advanced Diagnostic Testing</h1>
+<section class="hero show">
+
+<h1>Accurate Diagnostic Testing</h1>
 
 <p>Serving Hamirpur Since 2015</p>
 
-<button onclick="book()">Book Test</button>
+<br>
+
+<a class="btn" href="https://wa.me/919816735272" target="_blank">Book Test</a>
 
 </section>
 
+<!-- STATS -->
+
 <section>
 
-<h2>Why Choose Us</h2>
+<h2>Our Experience</h2>
 
 <div class="grid">
 
-<div class="glass">Trusted Diagnostic Services</div>
-<div class="glass">Fast Accurate Reports</div>
-<div class="glass">Modern Equipment</div>
+<div class="glass">
+<div class="stat">10+</div>
+Years Experience
+</div>
+
+<div class="glass">
+<div class="stat">10000+</div>
+Patients Tested
+</div>
+
+<div class="glass">
+<div class="stat">50+</div>
+Tests Available
+</div>
 
 </div>
 
 </section>
+
+<!-- TESTS -->
 
 <section id="tests">
 
@@ -194,37 +288,17 @@ text-align:center;
 
 <div class="grid">
 
-<div class="glass">CBC ₹250</div>
-<div class="glass">Blood Sugar ₹50</div>
-<div class="glass">Lipid Profile ₹400</div>
-<div class="glass">Thyroid Profile ₹400</div>
+<div class="glass">CBC — ₹250</div>
+<div class="glass">Blood Sugar — ₹50</div>
+<div class="glass">Lipid Profile — ₹400</div>
+<div class="glass">Thyroid Profile — ₹400</div>
+<div class="glass">Vitamin D — ₹1000</div>
 
 </div>
 
 </section>
 
-<section id="ai">
-
-<h2>Smart Test Recommendation</h2>
-
-<div class="glass">
-
-<select id="symptom">
-
-<option value="">Select Symptom</option>
-<option value="fatigue">Fatigue</option>
-<option value="diabetes">Frequent thirst</option>
-<option value="cholesterol">Chest heaviness</option>
-
-</select>
-
-<button onclick="recommend()">Check Test</button>
-
-<h3 id="result"></h3>
-
-</div>
-
-</section>
+<!-- REVIEWS -->
 
 <section>
 
@@ -234,16 +308,18 @@ text-align:center;
 
 <div class="slides">
 
-<div class="glass">Very fast reports.</div>
-<div class="glass">Best lab in Hamirpur.</div>
-<div class="glass">Highly professional staff.</div>
-<div class="glass">Accurate testing service.</div>
+<div class="glass">Very fast and accurate reports.</div>
+<div class="glass">Best diagnostic lab in Hamirpur.</div>
+<div class="glass">Professional and clean environment.</div>
+<div class="glass">Highly recommended service.</div>
 
 </div>
 
 </div>
 
 </section>
+
+<!-- MAP -->
 
 <section>
 
@@ -253,27 +329,33 @@ text-align:center;
 width="100%"
 height="300"
 style="border:0;border-radius:12px"
-src="https://maps.google.com/maps?q=hamirpur%20hospital&t=&z=13&ie=UTF8&iwloc=&output=embed">
+loading="lazy"
+src="https://maps.google.com/maps?q=RKGMC%20Hospital%20Hamirpur%20Himachal%20Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed">
 </iframe>
 
 </section>
 
-<section>
+<!-- CONTACT -->
 
-<h2>Contact</h2>
+<section id="contact">
+
+<h2>Contact Us</h2>
 
 <p>Phone: 9816735272</p>
+
 <p>Opposite RKGMC Hospital, Hamirpur</p>
 
 </section>
 
+<!-- CHATBOT -->
+
 <div class="chatbtn" onclick="toggleChat()">💬</div>
 
-<div class="chat" id="chat">
+<div class="chatbox" id="chat">
 
 <b>Satyam Lab Assistant</b>
 
-<input id="user" placeholder="Ask something">
+<input id="user" placeholder="Ask something...">
 
 <button onclick="reply()">Send</button>
 
@@ -283,24 +365,25 @@ src="https://maps.google.com/maps?q=hamirpur%20hospital&t=&z=13&ie=UTF8&iwloc=&o
 
 <script>
 
-function book(){
-window.open("https://wa.me/919816735272");
+/* Scroll animation */
+
+const sections=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+
+sections.forEach(sec=>{
+
+const top=sec.getBoundingClientRect().top;
+
+if(top<window.innerHeight-120){
+sec.classList.add("show");
 }
 
-function recommend(){
+});
 
-let s=document.getElementById("symptom").value;
+});
 
-if(s=="fatigue")
-document.getElementById("result").innerText="Recommended: CBC + Thyroid";
-
-else if(s=="diabetes")
-document.getElementById("result").innerText="Recommended: Blood Sugar Test";
-
-else if(s=="cholesterol")
-document.getElementById("result").innerText="Recommended: Lipid Profile";
-
-}
+/* Chatbot */
 
 function toggleChat(){
 
@@ -314,13 +397,16 @@ function reply(){
 
 let msg=document.getElementById("user").value.toLowerCase();
 
-let r="Please contact us on WhatsApp.";
+let r="Please contact us on WhatsApp for more details.";
 
 if(msg.includes("price"))
-r="CBC ₹250, Sugar ₹50.";
+r="CBC ₹250, Sugar ₹50, Thyroid ₹400.";
 
 if(msg.includes("report"))
-r="Reports ready within 24 hours.";
+r="Reports are usually ready within 24 hours.";
+
+if(msg.includes("location"))
+r="Opposite RKGMC Hospital, Hamirpur.";
 
 document.getElementById("bot").innerText=r;
 
@@ -329,4 +415,4 @@ document.getElementById("bot").innerText=r;
 </script>
 
 </body>
-</html>
+  </html>
